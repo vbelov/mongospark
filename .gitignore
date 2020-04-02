@@ -1,0 +1,5 @@
+venv
+.idea
+.terraform*
+terraform.tfstate
+*.tfvars
