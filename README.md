@@ -1,5 +1,12 @@
 Данный репозиторий содержит пример, как можно на платформе Яндекс.Облака настоить связку Spark + MongoDB. 
 
+Скачиваем данный репозиторий:
+
+```bash
+git clone https://github.com/vbelov/mongospark.git
+cd mongospark
+```
+
 С помощью terraform'а создаем [Yandex Managed Service for MongoDB](https://cloud.yandex.ru/docs/managed-mongodb/), кластер [Yandex Data Proc](https://cloud.yandex.ru/docs/data-proc/), а также бастионный хост, через который можно будет получить доступ к ресурсам, находящимся в приватной сети.
 
 ```bash
