@@ -1,3 +1,4 @@
+Данный репозиторий содержит пример, как можно на платформе Яндекс.Облака настоить связку Spark + MongoDB. 
 
 С помощью terraform'а создаем [Yandex Managed Service for MongoDB](https://cloud.yandex.ru/docs/managed-mongodb/), кластер [Yandex Data Proc](https://cloud.yandex.ru/docs/data-proc/), а также бастионный хост, через который можно будет получить доступ к ресурсам, находящимся в приватной сети.
 
