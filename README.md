@@ -54,6 +54,8 @@ ssh -A ubuntu@$GATEWAY_IP "scp ~/mongospark/pyspark/main.py root@$DATAPROC_MASTE
 ssh -t ubuntu@$GATEWAY_IP "cd mongospark/populate/ && sudo apt install -y python3-venv && python3 -m venv venv && ./venv/bin/pip install -r requirements.txt && MONGO_HOSTNAME=$MONGO_HOSTNAME ./venv/bin/python populate.py"
 ```
 
+Размер БД получается порядка 3 ГБ.
+
 Установим mongo-spark-connector на DataProc кластер. Это может занять некоторое время. Кроме того, для успешного выполнения данного шага DataProc кластер должен иметь доступ в интернет, а для этого необходимо включить NAT на подсети, в которой он находится. Необходимо дождаться, когда загрузится интерактивная консоль, затем из нее можно выйти:
 
 ```bash
@@ -64,4 +66,11 @@ ssh -t -A ubuntu@$GATEWAY_IP "ssh -t root@$DATAPROC_MASTER_HOSTNAME time MONGO_H
 
 ```bash
 ssh -t -A ubuntu@$GATEWAY_IP "ssh -t root@$DATAPROC_MASTER_HOSTNAME time MONGO_HOSTNAME=$MONGO_HOSTNAME spark-submit --packages org.mongodb.spark:mongo-spark-connector_2.11:2.4.1 main.py"
+```
+
+У меня получается такое время выполнения:
+```
+real    0m19.973s
+user    0m17.880s
+sys     0m0.808s
 ```
